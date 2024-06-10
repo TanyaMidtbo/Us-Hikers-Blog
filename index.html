@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-	<script src="./dist/bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Us, Hikers!</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome!</h1>
+      <button class="sign-out-button">Sign Out</button>
+    </header>
+    <main>
+      <form class="sign-in-form">
+        <label for="username">Username</label>
+        <input type="text" name="username" class="username" />
+        <p class="error username-error">Username is required</p>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email" />
+        <p class="error email-error">Email is required</p>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" class="password" />
+        <p class="error password-error">Password is required</p>
+
+        <button class="sign-in-button">Sign In</button>
+
+        <p>
+          Dont have an account? Sign up
+          <button class="sign-up-form__open">here</button>
+        </p>
+
+		<p class="error submittion-error">Submittion error</p>
+      </form>
+    </main>
+
+    <script src="./js/app.js"></script>
+    <!-- change this to bundle.js when deploying -->
+  </body>
 </html>

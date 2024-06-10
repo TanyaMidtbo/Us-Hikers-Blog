@@ -1,0 +1,45 @@
+header {
+  height: 5rem;
+  background-color: rgb(59, 74, 34);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+body {
+  background-color: darkolivegreen;
+}
+
+main {
+  height: 80%;
+}
+
+.sign-in-form {
+  width: 30%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(59, 74, 34);
+  margin-bottom: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sign-up-form__open{
+	background-color: transparent;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.error {
+  visibility: hidden;
+}
+
+
