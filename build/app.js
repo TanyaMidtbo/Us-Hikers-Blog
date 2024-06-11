@@ -1,8 +1,9 @@
 "use strict";
 
 var _signInValidation = require("./signInValidation.js");
+var _signUpValidation = require("./signUpValidation.js");
 console.log("test");
-//selecting the sign-in form elements
+//selecting sign-in form elements
 
 const emailInput = document.querySelector(".email");
 const passwordInput = document.querySelector(".password");
@@ -14,4 +15,29 @@ const submissionError = document.querySelector(".submittion-error");
 signInButton.addEventListener("click", e => {
   e.preventDefault();
   (0, _signInValidation.validateSignInForm)(emailInput.value, passwordInput.value, emailError, passwordError);
+});
+
+//selecting sign-up form elements
+
+const signUpFirstName = document.querySelector(".first-name");
+const signUpLastName = document.querySelector(".last-name");
+const signUpEmail = document.querySelector(".sign-up-email");
+const signUpPassword = document.querySelector(".sign-up-password");
+const signUpError = document.querySelector(".sign-up-error");
+const signUpForm = document.querySelector(".sign-up-form");
+const closeSignUpFormButton = document.querySelector(".sign-up-form__close");
+const openSignUpFormButton = document.querySelector(".sign-up-form__open");
+const signUpFormContainer = document.querySelector(".sign-up-form-container");
+const signUpButton = document.querySelector(".sign-up-button");
+openSignUpFormButton.addEventListener("click", e => {
+  e.preventDefault();
+  signUpFormContainer.style.display = "block";
+});
+closeSignUpFormButton.addEventListener("click", e => {
+  e.preventDefault();
+  signUpFormContainer.style.display = "none";
+});
+signUpButton.addEventListener("click", e => {
+  e.preventDefault();
+  (0, _signUpValidation.validateSignUpForm)(signUpFirstName.value, signUpLastName.value, signUpEmail.value, signUpPassword.value, signUpError);
 });

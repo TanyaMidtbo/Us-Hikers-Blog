@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,12 +9,11 @@
   </head>
   <body>
     <header>
-      <h1>Welcome!</h1>
+      <h2>Welcome!</h2>
       <button class="sign-out-button">Sign Out</button>
     </header>
     <main>
       <form class="sign-in-form">
-
         <label for="email">Email</label>
         <input type="email" name="email" class="email" />
         <p class="error email-error">Email is required</p>
@@ -23,17 +23,42 @@
         <p class="error password-error">Password is required</p>
 
         <button class="sign-in-button">Sign In</button>
-
         <p>
           Dont have an account? Sign up
           <button class="sign-up-form__open">here</button>
         </p>
-
-		<p class="error submittion-error">Submittion error</p>
+        <p class="error submittion-error">Submittion error</p>
       </form>
+
+      <div class="sign-up-form-container">
+
+        <div class="close-sign-up-container">
+          <button class="sign-up-form__close">X</button>
+        </div>
+
+        <form class="sign-up-form">
+          <label for="firstname">Firstname:</label>
+          <input type="text" name="firstname" class="firstname" />
+
+          <label for="lastname">Lastname:</label>
+          <input type="text" name="lastname" class="lastname" />
+
+          <label for="sign-up-email">Email:</label>
+          <input type="email" name="sign-up-email" class="sign-up-email" />
+
+          <label for="sign-up-password">Password:</label>
+          <input
+            type="password"
+            name="sign-up-password"
+            class="sign-up-password"
+          />
+
+          <p class="error sign-up-error">Error</p>
+          <button class="sign-up-button">Sign Up</button>
+        </form>
+      </div>
     </main>
 
     <script src="./dist/bundle.js"></script>
-    <!-- change this to bundle.js when deploying -->
   </body>
 </html>
