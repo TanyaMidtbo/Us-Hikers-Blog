@@ -8,6 +8,10 @@ header {
   margin-bottom: 1rem;
 }
 
+.sign-out-button{
+  visibility: visible;
+}
+
 body {
   background-color: darkolivegreen;
 }
@@ -41,6 +45,10 @@ main {
 
 .error {
   visibility: hidden;
+}
+
+.sign-up-error{
+  visibility: visible;
 }
 
 .sign-up-form-container {

@@ -1,5 +1,19 @@
-console.log("test");
 
+
+import { firebaseConfig } from "./firebaseConfig";
+import { initializeApp } from "firebase/app"; // Firebase App (the core Firebase SDK) is always required and must be listed first
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithEmailAndPassword,
+} from "firebase/auth"; // Add the Firebase products that I will use
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
+//initialize firebase authentication
+const authService = getAuth(); //authService holds the authentication service (backend)
 
 import { validateSignInForm } from "./signInValidation";
 import { validateSignUpForm } from "./signUpValidation";
@@ -14,7 +28,7 @@ const passwordError = document.querySelector(".password-error");
 const signInForm = document.querySelector(".sign-in-form");
 const submissionError = document.querySelector(".submittion-error");
 
-signInButton.addEventListener("click", (e) => {
+/* signInButton.addEventListener("click", (e) => {
   e.preventDefault();
   validateSignInForm(
     emailInput.value,
@@ -22,10 +36,9 @@ signInButton.addEventListener("click", (e) => {
     emailError,
     passwordError
   );
-});
+}); */
 
 //selecting sign-up form elements
-
 const signUpFirstName = document.querySelector(".firstname");
 const signUpLastName = document.querySelector(".lastname");
 const signUpEmail = document.querySelector(".sign-up-email");
@@ -57,3 +70,92 @@ signUpButton.addEventListener("click", (e) => {
     signUpError
   );
 });
+
+//SIGN UP USER
+function signUpUser() {
+  //first we need to check validation, if we have errors we will not sign up the user
+  const { signUpErrorStatus } = validateSignUpForm(
+    signUpFirstName.value.trim(), //either true or false
+    signUpLastName.value.trim(),
+    signUpEmail.value.trim(),
+    signUpPassword.value.trim(),
+    signUpError
+  );
+  if (signUpErrorStatus()) {
+    return; //if true (there is an error) we do not continue the function
+  } else {
+    const newUser = {
+      firstname: signUpFirstName.value.trim(), //trim() removes white spaces from the beginning and the end of the string
+      lastname: signUpLastName.value.trim(), //can be used later to greet the user
+      signUpEmail: signUpEmail.value.trim(),
+      signUpPassword: signUpPassword.value.trim(),
+    };
+    createUserWithEmailAndPassword(
+      //is asynchronous, returns a promise
+      authService,
+      newUser.signUpEmail,
+      newUser.signUpPassword
+    )
+      .then(() => {
+        signUpForm.reset();
+        signUpFormContainer.style.display = "none";
+      })
+      .catch((err) => console.log(err.message));
+  }
+}
+
+signUpButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  signUpUser();
+});
+
+//HANDLE SIGN OUT
+
+const signOutButton = document.querySelector(".sign-out-button");
+
+function signOutUser() {
+  signOut(authService) //signOut from where? from authService that is imported from firebase
+    .then(() => {
+      console.log("Sign out successful!");
+      signOutButton.style.visibility = "hidden";
+      signInForm.style.display = "flex";
+    })
+    .catch((err) => console.log(err.message));
+}
+
+signOutButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  signOutUser();
+});
+
+//SIGN IN USER
+
+function signInUser() {
+  const { signInFormStatus } = validateSignInForm(
+    emailInput.value,
+    passwordInput.value,
+    emailError,
+    passwordError
+  );
+  if (signInFormStatus()) {
+    return;
+  } else {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    signInWithEmailAndPassword(authService, email, password)
+      .then(() => {
+        signInForm.reset();
+        signOutButton.style.visibility = "visible";
+        console.log("Sign in successful!");
+      })
+      .catch((err) => {
+        submissionError.textContent = err.message;
+      });
+  }
+}
+
+signInButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  signInUser();
+});
+
