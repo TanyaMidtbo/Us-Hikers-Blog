@@ -1,25 +1,18 @@
-
+"use strict";
 
 import { firebaseConfig } from "./firebaseConfig";
-import { initializeApp } from "firebase/app"; // Firebase App (the core Firebase SDK) is always required and must be listed first
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signOut,
-  signInWithEmailAndPassword,
-} from "firebase/auth"; // Add the Firebase products that I will use
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { validateSignInForm } from "./signInValidation";
+import { validateSignUpForm } from "./signUpValidation";
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
-//initialize firebase authentication
-const authService = getAuth(); //authService holds the authentication service (backend)
+// Initialize Firebase Authentication
+const authService = getAuth(); // authService holds the authentication service (backend)
 
-import { validateSignInForm } from "./signInValidation";
-import { validateSignUpForm } from "./signUpValidation";
-
-//selecting sign-in form elements
-
+// Selecting sign-in form elements
 const emailInput = document.querySelector(".email");
 const passwordInput = document.querySelector(".password");
 const signInButton = document.querySelector(".sign-in-button");
