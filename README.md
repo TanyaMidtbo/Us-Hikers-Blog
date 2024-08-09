@@ -34,4 +34,6 @@ At the same time also created a twin-project using webpack and babel, https://gi
 After that I decided to add firebase to this project and made a huge mess. After wasting the whole two days trying to fix the issue I decided I don't really like webpack that much and returned to the parcel project. This one.
 ### Summary
 
+### Conclusion
+Copying things from one project to another is a bad idea
 
