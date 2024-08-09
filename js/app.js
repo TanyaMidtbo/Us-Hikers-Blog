@@ -1,10 +1,19 @@
 "use strict";
-
+console.log("App connected");
 import { firebaseConfig } from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { validateSignInForm } from "./signInValidation";
 import { validateSignUpForm } from "./signUpValidation";
+
+//WEATHER WIDGET IMPORT
+import { renderWeather } from "./weatherWidget";
+renderWeather();
+
+/* weatherWidget.currentHour = weatherWidget.getCurrentHour();
+console.log("Current hour:", weatherWidget.currentHour);
+weatherWidget.renderWeather(); */
+
 
 // Initialize Firebase
 initializeApp(firebaseConfig);

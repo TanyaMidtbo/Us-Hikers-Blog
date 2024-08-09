@@ -93,4 +93,17 @@ main {
   width: 2rem;
   height: 2rem;
 }
+
+.weather-widget-container {
+  background-color: #6495ed;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
 /*# sourceMappingURL=index.b2625c6b.css.map */

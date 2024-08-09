@@ -589,8 +589,14 @@ var _app = require("firebase/app");
 var _auth = require("firebase/auth");
 var _signInValidation = require("./signInValidation");
 var _signUpValidation = require("./signUpValidation");
+//WEATHER WIDGET IMPORT
+var _weatherWidget = require("./weatherWidget");
 "use strict";
-// Initialize Firebase
+console.log("App connected");
+(0, _weatherWidget.renderWeather)();
+/* weatherWidget.currentHour = weatherWidget.getCurrentHour();
+console.log("Current hour:", weatherWidget.currentHour);
+weatherWidget.renderWeather(); */ // Initialize Firebase
 (0, _app.initializeApp)((0, _firebaseConfig.firebaseConfig));
 // Initialize Firebase Authentication
 const authService = (0, _auth.getAuth)(); // authService holds the authentication service (backend)
@@ -691,7 +697,7 @@ signInButton.addEventListener("click", (e)=>{
     signInUser();
 });
 
-},{"./firebaseConfig":"iGlw8","firebase/app":"aM3Fo","firebase/auth":"79vzg","./signInValidation":"2RuVb","./signUpValidation":"7f4Fi"}],"iGlw8":[function(require,module,exports) {
+},{"./firebaseConfig":"iGlw8","firebase/app":"aM3Fo","firebase/auth":"79vzg","./signInValidation":"2RuVb","./signUpValidation":"7f4Fi","./weatherWidget":"4G0xz"}],"iGlw8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "firebaseConfig", ()=>firebaseConfig);
@@ -704,37 +710,7 @@ const firebaseConfig = {
     appId: "1:842020339814:web:4657b0d45e2c944d882da7"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"aM3Fo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aM3Fo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _app = require("@firebase/app");

@@ -93,3 +93,16 @@ main {
   height: 2rem;
   cursor: pointer;
 }
+
+.weather-widget-container{
+	background-color:cornflowerblue;
+	width: 300px;
+	height: 300px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.weather-icon{
+  width: 100px;
+  height: 100px;
+}
