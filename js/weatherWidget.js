@@ -32,7 +32,7 @@ function getTodayDate() {
 	try {
 	  const response = await fetch(url, options);
 	  const result = await response.json();
-	  console.log(result.data);
+	  console.log(result.data); //data is an object, can use for in loop
 	  return result.data;
 	} catch (error) {
 	  console.error(error);
@@ -69,3 +69,27 @@ function getTodayDate() {
   renderWeather();
 
   export { getCurrentHour, renderWeather };
+
+
+  //alternative code using localhost 
+/* const renderData = (data) => {
+	const container = document.querySelector(".weather-widget-container");
+	for (let weatherCondition in data) {
+		const weatherIcon = document.createElement("img");
+		const paragaraph = document.createElement("p");
+		paragaraph.textContent = `${weatherCondition}: ${data(temp)}`
+		weatherIcon.src = data[i].coco;
+		container.appendChild(paragaraph);
+	}}
+
+const fetchAndRender = async () => {
+	try {
+		const response = await fetch("http://localhost:4000");
+		const data = await response.json();
+		renderData(data);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+fetchAndRender(); */
