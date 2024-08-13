@@ -2,7 +2,7 @@ header {
   background-color: #3b4a22;
   justify-content: space-around;
   align-items: center;
-  height: 3rem;
+  height: auto;
   margin-bottom: 1rem;
   display: flex;
 }

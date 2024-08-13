@@ -1,6 +1,6 @@
 
 header {
-  height: 3rem;
+  height: auto;
   background-color: rgb(59, 74, 34);
   display: flex;
   align-items: center;
