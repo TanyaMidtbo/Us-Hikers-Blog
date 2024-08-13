@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Us, Hikers!</title>
   </head>
@@ -11,62 +12,125 @@
     <header>
       <h2>Welcome!</h2>
       <button class="sign-out-button">Sign Out</button>
-
-      <div class="weather-container-main">
-        <h1>Weather works</h1>
-          <div class="weather-widget-container">
-            <ul class="weather-info-list"></ul>
-          </div>
-      
-          
-      </div>
     </header>
-    <main>
-      <form class="sign-in-form">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="email" />
-        <p class="error email-error">Email is required</p>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" class="password" />
-        <p class="error password-error">Password is required</p>
-
-        <button class="sign-in-button">Sign In</button>
-        <p>
-          Dont have an account? Sign up
-          <button class="sign-up-form__open">here</button>
-        </p>
-        <p class="error submittion-error">Submittion error</p>
-      </form>
-
-      <div class="sign-up-form-container">
-
-        <div class="close-sign-up-container">
-          <button class="sign-up-form__close">X</button>
+    <main class="main-content">
+      <section class="top-section">
+        <div class="tags-container">
+          <button class="tag-button">Hiking</button>
+          <button class="tag-button">Camping</button>
+          <button class="tag-button">Fishing</button>
+          <button class="tag-button">Climbing</button>
+          <button class="tag-button">Backpacking</button>
+          <button class="tag-button">Wildlife</button>
         </div>
+        <button class="new-post-button">Write a new post?</button>
+        <div class="weather-widget-container">
+          <ul class="weather-info-list"></ul>
+        </div>
+      </section>
 
-        <form class="sign-up-form">
-          <label for="firstname">Firstname:</label>
-          <input type="text" name="firstname" class="firstname" />
-
-          <label for="lastname">Lastname:</label>
-          <input type="text" name="lastname" class="lastname" />
-
-          <label for="sign-up-email">Email:</label>
-          <input type="email" name="sign-up-email" class="sign-up-email" />
-
-          <label for="sign-up-password">Password:</label>
-          <input
-            type="password"
-            name="sign-up-password"
-            class="sign-up-password"
-          />
-
-          <p class="error sign-up-error">Error</p>
-          <button class="sign-up-button">Sign Up</button>
-        </form>
-      </div>
+      <section class="content-section">
+        <div class="post-container">
+          <div class="post">
+            <div class="post-header">
+              <h3 class="post-title">Post Title</h3>
+              <p class="post-author">Author</p>
+            </div>
+            <div class="post-content">Post Content</div>
+          </div>
+        </div>
+      </section>
     </main>
+    <form class="sign-in-form">
+      <label for="email">Email</label>
+      <input type="email" name="email" class="email" />
+      <p class="error email-error">Email is required</p>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" class="password" />
+      <p class="error password-error">Password is required</p>
+
+      <button class="sign-in-button">Sign In</button>
+      <p>
+        Dont have an account? Sign up
+        <button class="sign-up-form__open">here</button>
+      </p>
+      <p class="error submittion-error">Submission error</p>
+    </form>
+
+    <div class="sign-up-form-container">
+      <div class="close-sign-up-container">
+        <button class="sign-up-form__close">X</button>
+      </div>
+
+      <form class="sign-up-form">
+        <label for="firstname">Firstname:</label>
+        <input type="text" name="firstname" class="firstname" />
+
+        <label for="lastname">Lastname:</label>
+        <input type="text" name="lastname" class="lastname" />
+
+        <label for="sign-up-email">Email:</label>
+        <input type="email" name="sign-up-email" class="sign-up-email" />
+
+        <label for="sign-up-password">Password:</label>
+        <input
+          type="password"
+          name="sign-up-password"
+          class="sign-up-password"
+        />
+
+        <p class="error sign-up-error">Error</p>
+        <button class="sign-up-button">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="new-post-container">
+      <form class="new-post-form" enctype="multipart/form-data">
+        <h2></h2>
+        <label for="post-title">Title:</label>
+        <input
+          type="text"
+          id="post-title"
+          name="post-title"
+          class="post-title"
+          required
+        />
+
+        <label for="category">Category</label>
+        <select name="category" id="category" class="category" required>
+          <option value="">Please choose</option>
+          <option value="hiking">hiking</option>
+          <option value="camping">camping</option>
+          <option value="fishing">fishing</option>
+          <option value="climbing">climbing</option>
+          <option value="backpacking">backpacking</option>
+          <option value="wildlife">wildlife</option>
+        </select>
+
+        <label for="post-content">Content:</label>
+        <textarea
+          id="post-content"
+          name="post-content"
+          class="post-content"
+          cols="30"
+          rows="10"
+          maxlength="500"
+          required
+        ></textarea>
+
+        <label for="post-image">Upload Image:</label>
+        <input
+          type="file"
+          name="post-image"
+          id="post-image"
+          class="post-image"
+          accept="image/*"
+        />
+        <button type="submit" class="submit-button">Submit</button>
+        <p class="error submittion-error">Submission error</p>
+      </form>
+    </div>
     <script type="module" src="./dist/app.js"></script>
   </body>
 </html>

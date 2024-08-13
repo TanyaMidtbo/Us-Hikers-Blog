@@ -57,7 +57,7 @@ async function renderWeather() {
 
     // Render elements with data fetched from the API
     weatherIcon.src = `../assets/${weatherCondition.coco}.png`;
-    weatherInformation.innerHTML = `Temperature: ${weatherCondition.temp}, Wind Speed: ${weatherCondition.wspd}, Precipitation: ${weatherCondition.prcp}`;
+    weatherInformation.innerHTML = `🌡️ ${weatherCondition.temp}°C, 🌪️ ${weatherCondition.wspd} km/h, ☔ ${weatherCondition.prcp} mm`;
   } catch (error) {
     console.error(error);
   }
