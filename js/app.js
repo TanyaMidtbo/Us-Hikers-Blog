@@ -2,7 +2,7 @@
 console.log("App connected");
 import { firebaseConfig } from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { validateSignInForm } from "./signInValidation";
 import { validateSignUpForm } from "./signUpValidation";
 
@@ -21,6 +21,23 @@ initializeApp(firebaseConfig);
 // Initialize Firebase Authentication
 const authService = getAuth(); // authService holds the authentication service (backend)
 
+// Check authentication state on page load
+onAuthStateChanged(authService, (user) => {
+  if (user) {
+    // User is signed in
+    console.log(`User is logged in as: ${user.email}`);
+
+    signInFormContainer.style.display = "none";
+    signOutButton.style.visibility = "visible";
+    userName.textContent = user.email;
+  } else {
+    // No user is signed in
+    console.log("No user is currently logged in.");
+    signInFormContainer.style.display = "block";
+    signOutButton.style.visibility = "hidden";
+    userName.textContent = "";
+  }
+});
 // Selecting sign-in form elements
 const emailInput = document.querySelector(".email");
 const passwordInput = document.querySelector(".password");
@@ -28,9 +45,12 @@ const signInButton = document.querySelector(".sign-in-button");
 const emailError = document.querySelector(".email-error");
 const passwordError = document.querySelector(".password-error");
 const signInForm = document.querySelector(".sign-in-form");
-const submissionError = document.querySelector(".submittion-error");
+const signInError = document.querySelector(".sign-in-error");
+const signInFormContainer = document.querySelector(".sign-in-form-container");
+const userName = document.querySelector(".user-name");
 
-/* signInButton.addEventListener("click", (e) => {
+// Add event listener to sign-in button
+signInButton.addEventListener("click", (e) => {
   e.preventDefault();
   validateSignInForm(
     emailInput.value,
@@ -38,7 +58,7 @@ const submissionError = document.querySelector(".submittion-error");
     emailError,
     passwordError
   );
-}); */
+});
 
 //selecting sign-up form elements
 const signUpFirstName = document.querySelector(".firstname");
@@ -140,6 +160,7 @@ function signInUser() {
     passwordError
   );
   if (signInFormStatus()) {
+
     return;
   } else {
     const email = emailInput.value.trim();
@@ -147,11 +168,23 @@ function signInUser() {
     signInWithEmailAndPassword(authService, email, password)
       .then(() => {
         signInForm.reset();
+        signInFormContainer.style.display = "none";
         signOutButton.style.visibility = "visible";
         console.log("Sign in successful!");
+
+
+        const user = authService.currentUser;
+        if (user) {
+          console.log(`Logged in as: ${user.email}`);
+        } else {
+          console.log("No user is currently logged in.");
+        }
+        userName.textContent = `Welcome, ${user.email}`;
       })
+   
       .catch((err) => {
-        submissionError.textContent = err.message;
+        signInError.style.visibility = "visible"; 
+        console.log("Sign in failed:", err.message);
       });
   }
 }

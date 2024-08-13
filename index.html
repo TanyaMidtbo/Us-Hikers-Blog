@@ -11,6 +11,7 @@
   <body>
     <header>
       <h2>Welcome!</h2>
+      <h2 class="user-name"></h2>
       <button class="sign-out-button">Sign Out</button>
     </header>
     <main class="main-content">
@@ -41,6 +42,7 @@
         </div>
       </section>
     </main>
+    <div class="sign-in-form-container">
     <form class="sign-in-form">
       <label for="email">Email</label>
       <input type="email" name="email" class="email" />
@@ -51,12 +53,13 @@
       <p class="error password-error">Password is required</p>
 
       <button class="sign-in-button">Sign In</button>
+      <p class="error sign-in-error">Password or email is invalid</p>
       <p>
         Dont have an account? Sign up
         <button class="sign-up-form__open">here</button>
       </p>
-      <p class="error submittion-error">Submission error</p>
     </form>
+  </div>
 
     <div class="sign-up-form-container">
       <div class="close-sign-up-container">

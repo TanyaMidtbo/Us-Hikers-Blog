@@ -104,7 +104,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  visibility: hidden;
+  visibility: visible;
 }
 
 .sign-up-form__open {
@@ -121,6 +121,9 @@ body {
 .sign-up-error{
   visibility: visible;
 }
+.sign-in-error{
+  visibility: hidden;
+}
 
 .sign-up-form-container {
   width: 60%;
@@ -131,6 +134,16 @@ body {
   border: 2px solid black;
   transform: translate(-50%, -50%);
   display: none;
+}
+sign-in-form-container {
+  width: 60%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid black;
+  transform: translate(-50%, -50%);
+  display: block;
 }
 
 .sign-up-form{
@@ -173,6 +186,7 @@ body {
   border: 2px solid black;
   transform: translate(-50%, -50%);
   background-color: rgb(59, 74, 34);
+  visibility: hidden;
 
 }
 .new-post-form{
