@@ -10,9 +10,9 @@ import { validateSignUpForm } from "./signUpValidation";
 import { renderWeather } from "./weatherWidget";
 renderWeather();
 
-/* weatherWidget.currentHour = weatherWidget.getCurrentHour();
+weatherWidget.currentHour = weatherWidget.getCurrentHour();
 console.log("Current hour:", weatherWidget.currentHour);
-weatherWidget.renderWeather(); */
+weatherWidget.renderWeather();
 
 
 // Initialize Firebase

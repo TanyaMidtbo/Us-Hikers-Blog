@@ -59,6 +59,7 @@ function getTodayDate() {
 	
 		// Render elements with data fetched from the API
 		weatherIcon.src = `../assets/${weatherCondition.coco}.png`;
+		console.log(weatherIcon.src = `../assets/${weatherCondition.coco}.png`);
 		weatherInformation.innerHTML = `Temperature: ${weatherCondition.temp}, Wind Speed: ${weatherCondition.wspd}, Precipitation: ${weatherCondition.prcp}`;
 	  } catch (error) {
 		console.error(error);
