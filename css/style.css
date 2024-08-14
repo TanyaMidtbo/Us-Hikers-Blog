@@ -1,38 +1,82 @@
+body, button, input {
+  font-family: "Noto Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 var(--spacing-small);
+  margin: 0 auto;
+}
 
 header {
-  height: auto;
-  background-color: rgb(59, 74, 34);
+  background-color: var(--color-dark-green);
+  margin-bottom: var(--spacing-small);
+}
+
+header .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  gap: var(--spacing-large);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
+
+.logo {
+  color: var(--color-yellow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo svg {
+  fill: var(--color-yellow);
+  flex-shrink: no-shrink;
+}
+
+.user-name {
+  margin-left: auto;
+  font-size: var(--spacing-small);
+  color: var(--color-yellow);
+}
+
 
 .sign-out-button{
   visibility: visible;
+  background-color: var(--color-green);
+  padding: 0.5rem;
+  color: var(--color-yellow);
+  border: 1 px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--spacing-small);
+  font-weight: 500;
 }
 
 body {
-  background-color: darkolivegreen;
+  background-color: var(--color-green);
 }
 
-.main-content {
+/* .main-content {
   display: flex;
   flex-direction: column;
   height: 80vh;
   padding: 1rem;
   border: 4px solid yellow;
-}
+} */
+
 .top-section{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   height: auto;
   gap: 1rem;
   width: 100%;
   height: 20%;
   padding: 1rem;
-  border: 2px dashed purple;
   margin-bottom: 1rem;
 
 }
@@ -45,42 +89,39 @@ body {
   width: 100%;
   height: 80%;
   padding: 1rem;
-  border: 2px dashed purple;
+
 }
 .tags-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
-  border: 3px dashed black;
+  padding: 4px 2px;
 }
 
 .tag-button {
   background-color: #4CAF50; 
-  border: none; 
+  border-radius: 10px;
   color: white; 
   padding: 10px 20px; 
   text-align: center; 
   text-decoration: none; 
   display: inline-block; 
   font-size: 16px; 
-  margin: 4px 2px; 
   cursor: pointer; 
-  border-radius: 5px; 
+  font-weight: 500; 
 }
 
 .new-post-button{
   background-color: #4CAF50; 
-  border: none; 
-  color: white; 
+  border-radius: 10px;
+  color: var(--color-yellow); 
   padding: 10px 20px; 
   text-align: center; 
   text-decoration: none; 
   display: inline-block; 
   font-size: 16px; 
-  margin: 4px 2px; 
   cursor: pointer; 
-  border-radius: 5px; 
+  font-weight: 500; 
 }
 
 .tag-button:hover {
@@ -91,34 +132,66 @@ body {
   background-color: #45a049; 
 }
 
-.sign-in-form {
-  width: 30%;
-  height: 70%;
+.form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-  background-color: rgb(59, 74, 34);
-  margin-bottom: 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 2px solid var(--color-yellow);
+  gap: 0.5rem;
+  padding: 2rem;
+  background-color: var(--color-dark-green);
   visibility: visible;
+  border: 2px solid var(--color-yellow);
+}
+
+/* .sign-in-form {
+  width: 30%;
+  visibility: hidden;
+} */
+
+label {
+  font-weight: 500;
+  color: var(--color-orange);
+}
+
+input, select, textarea {
+  font-size: 1rem;
+  border: 2px solid var(--color-yellow);
+  padding: 0.5rem;
+  background-color: #8f997d;
+}
+
+.form-button {
+  font-size: 1rem;
+  background-color: #308534;
+  padding: 0.5rem;
+  font-weight: 500;
+  color: var(--color-orange);
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .sign-up-form__open {
   background-color: transparent;
   border: none;
-  font-weight: bold;
   cursor: pointer;
+  display: inline;
+  color: var(--color-orange);
+  font-size: 14px;
+  padding: 0;
+  text-decoration: underline;
 }
 
 .post-added-message {
   visibility: hidden;
 }
-.error {
+.form .error {
   visibility: hidden;
+  color: red;
 }
 
 .sign-up-error{
@@ -129,15 +202,17 @@ body {
 }
 
 .sign-up-form-container {
-  width: 60%;
+/*   width: 60%;
   height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   border: 2px solid black;
   transform: translate(-50%, -50%);
-  display: none;
+  display: block; */
+  visibility: visible;
 }
+
 sign-in-form-container {
   width: 60%;
   height: 80%;
@@ -150,10 +225,7 @@ sign-in-form-container {
 }
 
 .sign-up-form{
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem;
+  visibility: visible;
 }
 
 .sign-up-form input{
@@ -161,34 +233,37 @@ sign-in-form-container {
   height: 2rem;
 }
 
-.sign-up-button{
-  width: 10rem;
-  height: 2rem;
-  background-color: rgb(59, 74, 34);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
 .close-sign-up-container{
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
 }
 
-.sign-up-form__close{
-  width: 2rem;
-  height: 2rem;
+.form-close{
+  font-size: 2rem;
   cursor: pointer;
+  color: #da2c38;
+  font-weight: 700;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 6px;
+  top: 0px;
 }
+
+.form:has(.form-close:hover) {
+  background-color: #535d42;
+}
+
 .new-post-container{
-  width: 60%;
+  max-width: 60%;
   height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   border: 2px solid black;
   transform: translate(-50%, -50%);
-  background-color: rgb(59, 74, 34);
+  background-color: var(--color-dark-green);
   visibility: hidden;
 }
 .new-post-form{
@@ -199,16 +274,26 @@ sign-in-form-container {
 }
 
 .weather-widget-container{
-	background-color:cornflowerblue;
-	width: 5rem;
-	height: 5rem;
-  font-size: 20px;
+	display: flex;
+  align-items: center;
+	width: 7rem;
+	height: 7rem;
+  font-size: 10px;
 	border-radius: 10px;
-	padding: 10px;
-  border: 3px solid black;
+	padding: 6px;
+  background-color: white;
+  border: 3px solid var(--color-dark-green);
 }
 
 .weather-icon{
   width: 2rem;
   height: 2rem;
+}
+
+.post-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px dashed var(--color-dark-green);
 }

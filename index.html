@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Us, Hikers!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h2>Welcome!</h2>
+      <div class="container">
+        <div class="logo">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="40px" width="40px" xmlns="http://www.w3.org/2000/svg"><path d="M185 58.59c-15-.38-30 13.1-33.1 33.43-3.3 21.68 8.8 39.98 24.8 42.38 16 2.4 32.9-11.5 36.1-33.2 3.3-21.72-8.7-39.94-24.8-42.35-1-.15-2-.24-3-.26zm113.3 77.21l-17.2 5.2 8.3 28.1 18.9.5zm-144.6 7.6c-2.7 70.5-.4 140.9-3.6 202.5-15.8 35.8-36.7 70.2-50.38 99.2l25.68 12.4c20.8-33.7 42.2-68 55.2-102.9l11.3-63.4 53 45.9 16.2 88.1 29.3-5.8-17.6-100.6-58.1-53.6-9.3-86.4 48.1 31.3c26.7.9 45.1-1.9 69.6-5.7l1-16.3-70.8-2.1-46.5-42c-9.5 6.7-20.9 10-32.8 8.2-7.7-1.2-14.5-4.3-20.3-8.8zm-16.6 13l-40.47 11.7-5.96 85.5c13.53 6.7 31.03 11.6 43.23 3.4zm352.7 65.3l-95.7 78.1-32 51.9L324 222.5c-6.3.9-12.2 1.8-18 2.6l43.5 147.1-22.6 36.7-19.4 3.4 3.7 21.3-64.5 12.8-4.2-22.7-84.3 14.8c-9.5 15.6-17.1 27.9-26 42.2l-49.52-23.9-62.64 34.8H489.8z"></path></svg>
+          <h2>Us, Hikers!</h2>
+        </div>
       <h2 class="user-name"></h2>
       <button class="sign-out-button">Sign Out</button>
+    </div>
     </header>
-    <main class="main-content">
+    <main class="main-content container">
       <section class="top-section">
         <div class="tags-container">
           <button class="tag-button">Hiking</button>
@@ -37,7 +45,7 @@
               <h3 class="post-title">Post Title</h3>
               <p class="post-author">Author</p>
             </div>
-            <div class="new-post-content">Post Content</div>
+            <div class="new-post-content">There’s a unique kind of peace that comes with lacing up your boots, tightening the straps on your backpack, and setting off into the wilderness. The world fades away, replaced by the rustle of leaves underfoot, the call of birds overhead, and the steady rhythm of your heartbeat syncing with the trail. This is the story of my recent hiking adventure—an escape from the noise of everyday life and a journey into nature’s untamed beauty.</div>
           </div>
         </div>
       </section>
@@ -46,7 +54,7 @@
 
     <!-------------------------------------------- SIGN IN FORM ---------------------------------------------->
     <div class="sign-in-form-container">
-      <form class="sign-in-form">
+      <form class="sign-in-form form">
         <label for="email">Email</label>
         <input type="email" name="email" class="email" />
         <p class="error email-error">Email is required</p>
@@ -55,7 +63,7 @@
         <input type="password" name="password" class="password" />
         <p class="error password-error">Password is required</p>
 
-        <button class="sign-in-button">Sign In</button>
+        <button class="sign-in-button form-button">Sign In</button>
         <p class="error sign-in-error">Password or email is invalid</p>
         <p>
           Dont have an account? Sign up
@@ -67,10 +75,10 @@
     <!-------------------------------------------- SIGN UP FORM ---------------------------------------------->
     <div class="sign-up-form-container">
       <div class="close-sign-up-container">
-        <button class="sign-up-form__close">X</button>
+        <button class="form-close">X</button>
       </div>
 
-      <form class="sign-up-form">
+      <form class="sign-up-form form">
         <label for="firstname">Firstname:</label>
         <input type="text" name="firstname" class="firstname" />
 
@@ -88,13 +96,13 @@
         />
 
         <p class="error sign-up-error">Error</p>
-        <button class="sign-up-button">Sign Up</button>
+        <button class="sign-up-button form-button">Sign Up</button>
       </form>
     </div>
 
     <!-------------------------------------------- NEW POST FORM ---------------------------------------------->
     <div class="new-post-container">
-      <form class="new-post-form" enctype="multipart/form-data"> <!-- multipart/form-data" is required for file upload -->
+      <form class="new-post-form " enctype="multipart/form-data"> <!-- multipart/form-data" is required for file upload -->
         <label for="post-title">Title:</label>
         <input
           type="text"
@@ -134,7 +142,7 @@
           class="new-post-image"
           accept="image/*"
         />
-        <button type="submit" class="new-post--submit-button">Submit</button>
+        <button type="submit" class="new-post--submit-button form-button">Submit</button>
         <p class="post-added-message">Post added successfully</p>
         <p class="error new-post--submit-error">Submission error</p>
       </form>

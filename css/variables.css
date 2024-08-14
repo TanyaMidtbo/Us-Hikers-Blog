@@ -1,10 +1,16 @@
 :root {
 	--font-size-base: 1rem;
-	--font-size-small: 0,5rem;
+	--font-size-small: 0.5rem;
 	--font-size-medium: 2rem;
 	--font-size-large: 4rem;
 
 	--spacing-small: 1rem;
 	--spacing-medium: 2rem;
 	--spacing-large: 4rem;
+
+	--color-yellow: #FCC22E;
+	--color-orange: #F5A234;
+	--color-light-green: #9ee493;
+	--color-green: #3E9C51;
+	--color-dark-green: #167547;
 }
