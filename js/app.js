@@ -72,7 +72,7 @@ const signUpEmail = document.querySelector(".sign-up-email");
 const signUpPassword = document.querySelector(".sign-up-password");
 const signUpError = document.querySelector(".sign-up-error");
 const signUpForm = document.querySelector(".sign-up-form");
-const closeSignUpFormButton = document.querySelector(".sign-up-form__close");
+const closeSignUpFormButton = document.querySelector(".form-close");
 const openSignUpFormButton = document.querySelector(".sign-up-form__open");
 const signUpFormContainer = document.querySelector(".sign-up-form-container");
 const signUpButton = document.querySelector(".sign-up-button");
@@ -182,7 +182,6 @@ function signInUser() {
         } else {
           console.log("No user is currently logged in.");
         }
-        userName.textContent = `Welcome, ${user.email}`;
       })
 
       .catch((err) => {
