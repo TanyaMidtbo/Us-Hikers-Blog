@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newPostTitle = document.querySelector("input.post-title");
   const newPostCategory = document.querySelector("select.new-post-category");
   const newPostContent = document.querySelector("textarea.new-post-content");
+  const newPostFormClose = document.querySelector(".new-post-button-close");
   /* const newPostImage = document.querySelector(".new-post-image");  */
 
   const newPostSubmitError = document.querySelector(".new-post--submit-error");
@@ -211,6 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
   addPostButton.addEventListener("click", (e) => {
     e.preventDefault();
     newPostContainer.style.visibility = "visible";
+    newPostFormClose.style.visibility = "visible";
+  });
+
+  newPostFormClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    newPostContainer.style.visibility = "hidden";
+    newPostFormClose.style.visibility = "hidden";
   });
 
 

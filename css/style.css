@@ -266,11 +266,17 @@ sign-in-form-container {
   background-color: var(--color-dark-green);
   visibility: hidden;
 }
+
 .new-post-form{
+
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem;
+}
+
+.new-post-button-close{
+  visibility: hidden;
 }
 
 .weather-widget-container{
