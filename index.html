@@ -37,30 +37,34 @@
               <h3 class="post-title">Post Title</h3>
               <p class="post-author">Author</p>
             </div>
-            <div class="post-content">Post Content</div>
+            <div class="new-post-content">Post Content</div>
           </div>
         </div>
       </section>
     </main>
+
+
+    <!-------------------------------------------- SIGN IN FORM ---------------------------------------------->
     <div class="sign-in-form-container">
-    <form class="sign-in-form">
-      <label for="email">Email</label>
-      <input type="email" name="email" class="email" />
-      <p class="error email-error">Email is required</p>
+      <form class="sign-in-form">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email" />
+        <p class="error email-error">Email is required</p>
 
-      <label for="password">Password</label>
-      <input type="password" name="password" class="password" />
-      <p class="error password-error">Password is required</p>
+        <label for="password">Password</label>
+        <input type="password" name="password" class="password" />
+        <p class="error password-error">Password is required</p>
 
-      <button class="sign-in-button">Sign In</button>
-      <p class="error sign-in-error">Password or email is invalid</p>
-      <p>
-        Dont have an account? Sign up
-        <button class="sign-up-form__open">here</button>
-      </p>
-    </form>
-  </div>
+        <button class="sign-in-button">Sign In</button>
+        <p class="error sign-in-error">Password or email is invalid</p>
+        <p>
+          Dont have an account? Sign up
+          <button class="sign-up-form__open">here</button>
+        </p>
+      </form>
+    </div>
 
+    <!-------------------------------------------- SIGN UP FORM ---------------------------------------------->
     <div class="sign-up-form-container">
       <div class="close-sign-up-container">
         <button class="sign-up-form__close">X</button>
@@ -88,9 +92,9 @@
       </form>
     </div>
 
+    <!-------------------------------------------- NEW POST FORM ---------------------------------------------->
     <div class="new-post-container">
-      <form class="new-post-form" enctype="multipart/form-data">
-        <h2></h2>
+      <form class="new-post-form" enctype="multipart/form-data"> <!-- multipart/form-data" is required for file upload -->
         <label for="post-title">Title:</label>
         <input
           type="text"
@@ -100,8 +104,8 @@
           required
         />
 
-        <label for="category">Category</label>
-        <select name="category" id="category" class="category" required>
+        <label for="new-post-category">Category</label>
+        <select name="new-post-category" id="new-post-category" class="new-post-category" required>
           <option value="">Please choose</option>
           <option value="hiking">hiking</option>
           <option value="camping">camping</option>
@@ -111,27 +115,28 @@
           <option value="wildlife">wildlife</option>
         </select>
 
-        <label for="post-content">Content:</label>
+        <label for="new-post-content">Content:</label>
         <textarea
-          id="post-content"
-          name="post-content"
-          class="post-content"
+          id="new-post-content"
+          name="new-post-content"
+          class="new-post-content"
           cols="30"
           rows="10"
           maxlength="500"
           required
         ></textarea>
 
-        <label for="post-image">Upload Image:</label>
+        <label for="new-post-image">Upload Image:</label>
         <input
           type="file"
-          name="post-image"
-          id="post-image"
-          class="post-image"
+          name="new-post-image"
+          id="new-post-image"
+          class="new-post-image"
           accept="image/*"
         />
-        <button type="submit" class="submit-button">Submit</button>
-        <p class="error submittion-error">Submission error</p>
+        <button type="submit" class="new-post--submit-button">Submit</button>
+        <p class="post-added-message">Post added successfully</p>
+        <p class="error new-post--submit-error">Submission error</p>
       </form>
     </div>
     <script type="module" src="./dist/app.js"></script>

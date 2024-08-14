@@ -2,7 +2,13 @@
 console.log("App connected");
 import { firebaseConfig } from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { validateSignInForm } from "./signInValidation";
 import { validateSignUpForm } from "./signUpValidation";
 
@@ -13,7 +19,6 @@ renderWeather();
 /* weatherWidget.currentHour = weatherWidget.getCurrentHour();
 console.log("Current hour:", weatherWidget.currentHour);
 weatherWidget.renderWeather();  */
-
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -160,7 +165,6 @@ function signInUser() {
     passwordError
   );
   if (signInFormStatus()) {
-
     return;
   } else {
     const email = emailInput.value.trim();
@@ -172,7 +176,6 @@ function signInUser() {
         signOutButton.style.visibility = "visible";
         console.log("Sign in successful!");
 
-
         const user = authService.currentUser;
         if (user) {
           console.log(`Logged in as: ${user.email}`);
@@ -181,9 +184,9 @@ function signInUser() {
         }
         userName.textContent = `Welcome, ${user.email}`;
       })
-   
+
       .catch((err) => {
-        signInError.style.visibility = "visible"; 
+        signInError.style.visibility = "visible";
         console.log("Sign in failed:", err.message);
       });
   }
@@ -194,3 +197,57 @@ signInButton.addEventListener("click", (e) => {
   signInUser();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  //ADD NEW POST
+  const addPostButton = document.querySelector(".new-post-button");
+  const newPostContainer = document.querySelector(".new-post-container");
+  const newPostForm = document.querySelector(".new-post-form");
+  const newPostTitle = document.querySelector("input.post-title");
+  const newPostCategory = document.querySelector("select.new-post-category");
+  const newPostContent = document.querySelector("textarea.new-post-content");
+  /* const newPostImage = document.querySelector(".new-post-image");  */
+
+  const newPostSubmitError = document.querySelector(".new-post--submit-error");
+
+  addPostButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    newPostContainer.style.visibility = "visible";
+  });
+
+
+  // Load stored posts from localStorage
+  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+  console.log("Posts array outside the function:", posts);
+
+  newPostForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    //Access the values of the input elements
+    const addedPostTitle = newPostTitle.value;
+    const addedPostCategory = newPostCategory.value;
+    const addedPostContent = newPostContent.value;
+
+    //Log the values to the console
+
+    // store the values in an array
+    posts.push({
+      title: addedPostTitle,
+      category: addedPostCategory,
+      content: addedPostContent,
+    });
+
+    console.log("Posts array inside function:", posts);
+
+    //store the posts in local storage
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    //check if the posts are stored in local storage
+    const storedPosts = JSON.parse(localStorage.getItem("posts"));
+    console.log("Stored posts:", storedPosts);
+
+    newPostForm.reset();
+    newPostContainer.style.visibility = "hidden";
+
+    return posts;
+  });
+});

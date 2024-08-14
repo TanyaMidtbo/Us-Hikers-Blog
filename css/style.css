@@ -114,6 +114,9 @@ body {
   cursor: pointer;
 }
 
+.post-added-message {
+  visibility: hidden;
+}
 .error {
   visibility: hidden;
 }
@@ -187,7 +190,6 @@ sign-in-form-container {
   transform: translate(-50%, -50%);
   background-color: rgb(59, 74, 34);
   visibility: hidden;
-
 }
 .new-post-form{
   display: flex;
