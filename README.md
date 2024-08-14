@@ -22,7 +22,12 @@ Weather API provided by: https://rapidapi.com/ and https://dev.meteostat.net/
 
 Weather Icons by: https://www.flaticon.com/ created by berkahicon
 
-Images by: 
+Images by: Photo by [Kalen Emsley](https://unsplash.com/@kalenemsley) on [Unsplash](https://unsplash.com/photos/woman-walking-on-pathway-on-top-of-hill-at-golden-hour-7bwQXzbF6KE),
+Photo by [Andrew Ly](https://unsplash.com/@nineteen) on [Unsplash](https://unsplash.com/photos/two-gray-and-orange-backpacks-on-gray-rocks-at-daytime-bQl2kRQyUE8),
+Photo by [photo nic](https://unsplash.com/@chiro) on [Unsplash](https://unsplash.com/photos/silhouette-photo-of-three-person-near-tall-trees-xOigCUcFdA8),
+Photo by [Diogo Tavares](https://unsplash.com/@diogotavares) on [Unsplash](https://unsplash.com/photos/several-mountain-climbers-on-cliff-of-rock-mountain-at-daytime-rcngqAAfYK0),
+Photo by [Kalen Emsley](https://unsplash.com/@kalenemsley) on [Unsplash](https://unsplash.com/photos/aerial-photography-of-mountain-bridge-fUNTOGILNa0)
+
 
 Color Palette by:
 
