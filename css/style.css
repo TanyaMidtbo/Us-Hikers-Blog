@@ -268,13 +268,15 @@ sign-in-form-container {
 }
 
 .new-post-form{
-
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem;
 }
 
+.post-container{
+  width: 100%;
+}
 .new-post-button-close{
   visibility: hidden;
 }

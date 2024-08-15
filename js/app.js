@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newPostCategory = document.querySelector("select.new-post-category");
   const newPostContent = document.querySelector("textarea.new-post-content");
   const newPostFormClose = document.querySelector(".new-post-button-close");
-  /* const newPostImage = document.querySelector(".new-post-image");  */
+
 
   const newPostSubmitError = document.querySelector(".new-post--submit-error");
 
@@ -221,10 +221,80 @@ document.addEventListener("DOMContentLoaded", () => {
     newPostFormClose.style.visibility = "hidden";
   });
 
+  //select elements where posts from local storage  will be rendered
+  const postsContainer = document.querySelector(".post-container");
 
   // Load stored posts from localStorage
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
   console.log("Posts array outside the function:", posts);
+
+  //convert the data from local storage to a string
+  localStorage.setItem("posts", JSON.stringify(posts));
+
+  // render stored posts
+  posts.forEach((post) => {
+    // Create a new post body element for each post
+    const postBody = document.createElement("div");
+    postBody.classList.add("post");
+    postBody.dataset.category = post.category;
+
+    const postTitle = document.createElement("h2");
+    postTitle.classList.add("post-title");
+    postTitle.textContent = post.title;
+
+    const postCategory = document.createElement("p");
+    postCategory.classList.add("post-category");
+    postCategory.textContent = post.category;
+
+    const postContent = document.createElement("p");
+    postContent.classList.add("new-post-content");
+    postContent.textContent = post.content;
+
+    postBody.appendChild(postTitle);
+    postBody.appendChild(postCategory);
+    postBody.appendChild(postContent);
+
+    postsContainer.appendChild(postBody);
+  });
+
+  // Filter functionality 
+  const filterButtons = document.querySelectorAll(".tag-button"); // Select all filter buttons
+
+  const filterPosts = (event) => {
+    const currentButton = event.currentTarget; // Select button that was clicked
+    const currentButtonFilterBy = currentButton.dataset.filterBy; // Get filter criteria
+    const filteredPosts = [...document.querySelectorAll(".post")].filter(
+      (post) => {
+        if (currentButtonFilterBy === "all") {
+          // If criteria matches "All" parameter, show everything
+          return true;
+        } else {
+          return post.dataset.category === currentButtonFilterBy; // Check if post category matches filter criteria
+        }
+      }
+    );
+    postsContainer.innerHTML = ""; // Empty the container that holds the posts
+
+    filteredPosts.forEach((post) => {
+      // Fill empty container with posts which match chosen filter criteria
+      postsContainer.appendChild(post);
+    });
+  };
+
+  filterButtons.forEach((filterButton) => {
+    // Add event listener to every filter-button, and execute the function when button is clicked
+    filterButton.addEventListener("click", filterPosts);
+  });
+
+
+
+
+
+
+
+
+
+
 
   newPostForm.addEventListener("submit", function (event) {
     event.preventDefault();
