@@ -1,5 +1,4 @@
 "use strict";
-console.log("App connected");
 import { firebaseConfig } from "./firebaseConfig";
 import { initializeApp } from "firebase/app";
 import {
@@ -16,10 +15,6 @@ import { validateSignUpForm } from "./signUpValidation";
 import { renderWeather } from "./weatherWidget";
 renderWeather();
 
-/* weatherWidget.currentHour = weatherWidget.getCurrentHour();
-console.log("Current hour:", weatherWidget.currentHour);
-weatherWidget.renderWeather();  */
-
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
@@ -30,14 +25,11 @@ const authService = getAuth(); // authService holds the authentication service (
 onAuthStateChanged(authService, (user) => {
   if (user) {
     // User is signed in
-    console.log(`User is logged in as: ${user.email}`);
-
     signInFormContainer.style.display = "none";
     signOutButton.style.visibility = "visible";
     userName.textContent = user.email;
   } else {
     // No user is signed in
-    console.log("No user is currently logged in.");
     signInFormContainer.style.display = "block";
     signOutButton.style.visibility = "hidden";
     userName.textContent = "";
@@ -143,7 +135,6 @@ const signOutButton = document.querySelector(".sign-out-button");
 function signOutUser() {
   signOut(authService) //signOut from where? from authService that is imported from firebase
     .then(() => {
-      console.log("Sign out successful!");
       signOutButton.style.visibility = "hidden";
       signInForm.style.display = "flex";
     })
@@ -174,19 +165,12 @@ function signInUser() {
         signInForm.reset();
         signInFormContainer.style.display = "none";
         signOutButton.style.visibility = "visible";
-        console.log("Sign in successful!");
 
         const user = authService.currentUser;
-        if (user) {
-          console.log(`Logged in as: ${user.email}`);
-        } else {
-          console.log("No user is currently logged in.");
-        }
       })
 
       .catch((err) => {
         signInError.style.visibility = "visible";
-        console.log("Sign in failed:", err.message);
       });
   }
 }
@@ -207,8 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const newPostFormClose = document.querySelector(".new-post-button-close");
 
 
-  const newPostSubmitError = document.querySelector(".new-post--submit-error");
-
   addPostButton.addEventListener("click", (e) => {
     e.preventDefault();
     newPostContainer.style.visibility = "visible";
@@ -226,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load stored posts from localStorage
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
-  console.log("Posts array outside the function:", posts);
 
   //convert the data from local storage to a string
   localStorage.setItem("posts", JSON.stringify(posts));
@@ -286,16 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
     filterButton.addEventListener("click", filterPosts);
   });
 
-
-
-
-
-
-
-
-
-
-
   newPostForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -304,8 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const addedPostCategory = newPostCategory.value;
     const addedPostContent = newPostContent.value;
 
-    //Log the values to the console
-
     // store the values in an array
     posts.push({
       title: addedPostTitle,
@@ -313,14 +282,11 @@ document.addEventListener("DOMContentLoaded", () => {
       content: addedPostContent,
     });
 
-    console.log("Posts array inside function:", posts);
-
     //store the posts in local storage
     localStorage.setItem("posts", JSON.stringify(posts));
 
     //check if the posts are stored in local storage
     const storedPosts = JSON.parse(localStorage.getItem("posts"));
-    console.log("Stored posts:", storedPosts);
 
     newPostForm.reset();
     newPostContainer.style.visibility = "hidden";

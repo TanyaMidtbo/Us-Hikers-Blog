@@ -6,9 +6,7 @@ The final school project meant to showcase my proficiency in coding and design, 
 the skills acquired in the first semester, and the latest knowledge acquired during the 
 second semester. 
 
-A school project to practice asynchronous JavaScript and the Fetch API, modular JS, Firebase for back-end services, Git to manage the project.
-
-### Technologies
+A school project to practice asynchronous JavaScript and the Fetch API, modular JS, Firebase for back-end services, Git to manage the project. Local storage to save and render data from logged-in users. Data can be filtered by category. 
 
 
 ### Credits
@@ -43,4 +41,6 @@ After that I decided to add firebase to this twin-project and made a huge mess. 
 Copying things from one project to another is a bad idea.
 
 AI is not going to steal anyones job in the near future.
+
+All layout should be completely finished before moving on to js
 

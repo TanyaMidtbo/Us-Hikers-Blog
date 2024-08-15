@@ -18,7 +18,6 @@ function getCurrentHour() {
   return today.getHours();
 }
 const currentHour = getCurrentHour();
-console.log("Current hour:", currentHour);
 
 async function fetchWeatherData() {
   const todayDate = getTodayDate();
@@ -30,7 +29,6 @@ async function fetchWeatherData() {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result.data);
     return result.data;
   } catch (error) {
     console.error(error);
