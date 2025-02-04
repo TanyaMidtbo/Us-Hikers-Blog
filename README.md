@@ -24,7 +24,6 @@ Color Palette by: https://coolors.co/
 
 Backend services by: https://firebase.google.com/
 
-GitHub: https://github.com/TetianaKoliesnik/Us-Hikers-Blog
 
 Copilot
 
